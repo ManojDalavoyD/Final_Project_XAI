@@ -1,4 +1,4 @@
-const analyzeVitals = require("https://vscode.dev/github/ManojDalavoyD/Final_Project_XAI/blob/main/Server/src/ruleEngine.js");
+const analyzeVitals = require("../services/ruleEngine");
 
 exports.predictHealth = (req, res) => {
   const { disease, patient, vitals } = req.body;
