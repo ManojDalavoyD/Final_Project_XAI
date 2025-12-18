@@ -1,14 +1,18 @@
+const analyzeVitals = require("https://vscode.dev/github/ManojDalavoyD/Final_Project_XAI/blob/main/Server/src/ruleEngine.js");
+
 exports.predictHealth = (req, res) => {
   const { disease, patient, vitals } = req.body;
 
-  // Temporary dummy logic (NO AI)
+  const analysis = analyzeVitals(vitals);
+
   const response = {
     disease,
-    riskLevel: "MODERATE",
-    message: "Vitals received successfully",
-    receivedVitals: vitals
+    patient,
+    vitals,
+    riskLevel: analysis.riskLevel,
+    reasons: analysis.reasons,
+    aiNote: "Rule-based assessment (AI explainability will be added)"
   };
 
   res.json(response);
 };
-
